@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.child:hover {
+  color: green;
+}
+```
+
+In this example, the `!important` declaration on `.child` overrides the `color: blue` from the parent element. However, the `:hover` pseudo-class has a higher specificity than the `!important` declaration in the `.child` selector, causing it to apply the `color: green`. This unexpected behavior occurs because the specificity rules in CSS define that `:hover` has higher precedence than `!important`.
+
+This is uncommon because developers usually don't expect the specificity of a pseudo-class to override `!important`.
